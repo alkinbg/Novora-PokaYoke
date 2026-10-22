@@ -1,0 +1,32 @@
+name: Bug report
+description: Report reproducible incorrect behavior
+title: "Bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "Please do not report security vulnerabilities here. See SECURITY.md."
+  - type: input
+    id: version
+    attributes:
+      label: Package version or commit
+      placeholder: "v1.0.0 or commit SHA"
+    validations:
+      required: true
+  - type: input
+    id: php
+    attributes:
+      label: PHP version
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include a small standalone PHP example and expected versus actual results.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
