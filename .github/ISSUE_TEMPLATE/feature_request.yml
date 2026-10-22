@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest a narrowly scoped improvement
+title: "Feature: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Explain the practical error-prevention scenario.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API or behavior
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Existing solutions and alternatives
