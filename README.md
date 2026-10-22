@@ -2,7 +2,13 @@
 
 Small, framework-independent PHP 8.4+ precondition guards for business operations.
 
-> **Status: prototype.** API is experimental; not yet released or published to Packagist.
+> **Current stable release: v1.0.0.** Available on [Packagist](https://packagist.org/packages/novora/poka-yoke). The package provides a deliberately small, synchronous precondition-checking API, not a general-purpose workflow or rule engine.
+
+## Installation
+
+```bash
+composer require "novora/poka-yoke:^1.0"
+```
 
 ## Requirements
 
@@ -31,6 +37,10 @@ $result = (new Guard())->execute($order, [$rule], fn () => 'processed');
 ```
 
 See [`examples/order.php`](examples/order.php).
+
+## When to use it
+
+Choose this library when you want to check application-defined preconditions, collect actionable violations, and prevent an operation callback from running when any check fails. For ordinary data validation, prefer an established validation library. For workflow state transitions, use a workflow/state-machine library. This package intentionally does not replicate their features.
 
 ## Contract and design decisions
 
