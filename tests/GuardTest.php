@@ -13,7 +13,7 @@ final class GuardTest extends TestCase
     {
         $rule = static fn (string $code): Rule => new class($code) implements Rule {
             public function __construct(private string $code) {}
-            public function check(mixed $context): ?Violation { return new Violation($this->code, 'Blocked'); }
+            public function check(mixed $context): Violation { return new Violation($this->code, 'Blocked'); }
         };
         $result = (new Guard())->check(null, [$rule('one'), $rule('two')]);
         self::assertFalse($result->allowed());
@@ -25,7 +25,7 @@ final class GuardTest extends TestCase
     {
         $executed = false;
         $rule = new class implements Rule {
-            public function check(mixed $context): ?Violation { return new Violation('blocked', 'Not ready'); }
+            public function check(mixed $context): Violation { return new Violation('blocked', 'Not ready'); }
         };
         try {
             (new Guard())->execute(null, [$rule], static function () use (&$executed): void { $executed = true; });

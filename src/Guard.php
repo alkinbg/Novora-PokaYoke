@@ -6,7 +6,7 @@ namespace Novora\PokaYoke;
 
 final readonly class Guard
 {
-    /** @param iterable<Rule> $rules */
+    /** @param iterable<mixed> $rules */
     public function check(mixed $context, iterable $rules, bool $stopOnFirstViolation = false): GuardResult
     {
         $violations = [];
@@ -27,7 +27,7 @@ final readonly class Guard
 
     /**
      * @template TResult
-     * @param iterable<Rule> $rules
+     * @param iterable<mixed> $rules
      * @param callable():TResult $action
      * @return TResult
      */

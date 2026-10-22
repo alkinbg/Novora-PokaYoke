@@ -6,7 +6,7 @@ namespace Novora\PokaYoke;
 
 final readonly class GuardResult
 {
-    /** @param list<Violation> $violations */
+    /** @param list<mixed> $violations */
     public function __construct(public array $violations)
     {
         foreach ($violations as $violation) {
