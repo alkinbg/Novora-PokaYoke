@@ -4,6 +4,12 @@ Small, framework-independent PHP 8.4+ precondition guards for business operation
 
 > **Status: prototype.** API is experimental; not yet released or published to Packagist.
 
+## Requirements
+
+- PHP 8.4 or newer (within the supported PHP 8 major series).
+- Composer 2.
+- No mandatory external runtime packages.
+
 ## Design
 
 - `Rule::check(mixed $context): ?Violation` returns `null` on success or a meaningful failure.
@@ -25,6 +31,12 @@ $result = (new Guard())->execute($order, [$rule], fn () => 'processed');
 ```
 
 See [`examples/order.php`](examples/order.php).
+
+## Contract and design decisions
+
+The `mixed` context is intentional: independent business applications can pass an immutable DTO, an entity, or scalar context without an adapter. For typed domain rules, validate the incoming context explicitly or delegate to a typed service. `Guard::execute()` invokes the zero-argument action only after all rules accept the context. Keep rule evaluation observational: rule implementations must not mutate state. A failure result is represented by a stable machine-readable violation `code` and a human-readable `message`; callers control localization and presentation.
+
+The default is to evaluate all rules and collect every violation in the supplied order. Pass `stopOnFirstViolation: true` to `check()` when later checks should be skipped. The current API deliberately does **not** ship a rules registry, HTTP middleware, state machine, or concurrency layer.
 
 ## Guarantees and limits
 

@@ -1,1 +1,38 @@
-{"name":"novora/poka-yoke","description":"Framework-independent precondition guards for PHP business operations.","type":"library","license":"MIT","require":{"php":"^8.4"},"require-dev":{"phpunit/phpunit":"^12.0","phpstan/phpstan":"^2.0"},"autoload":{"psr-4":{"Novora\\PokaYoke\\":"src/"}},"autoload-dev":{"psr-4":{"Novora\\PokaYoke\\Tests\\":"tests/"}},"scripts":{"test":"phpunit","analyse":"phpstan analyse"}}
+{
+    "name": "novora/poka-yoke",
+    "description": "Framework-independent precondition guards for PHP business operations.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.0",
+        "phpstan/phpstan": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Novora\\PokaYoke\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Novora\\PokaYoke\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse"
+    },
+    "keywords": [
+        "poka-yoke",
+        "mistake-proofing",
+        "guard",
+        "business-rules",
+        "preconditions"
+    ],
+    "support": {
+        "source": "https://github.com/alkinbg/Novora-PokaYoke",
+        "issues": "https://github.com/alkinbg/Novora-PokaYoke/issues"
+    }
+}
