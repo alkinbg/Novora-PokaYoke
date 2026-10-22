@@ -67,3 +67,5 @@ composer analyse
 `Guard::check()` returns a `GuardResult` containing all violations in rule order, or just the first when `stopOnFirstViolation` is enabled. `Guard::execute()` throws `OperationBlocked` with the same result when rules reject an operation. Invalid rule objects, invalid violations and empty violation codes/messages are rejected with `InvalidArgumentException`.
 
 If a rule itself throws (for example, because its data source is unavailable), that exception propagates and the action does not run. An exception raised by the action also propagates; the library cannot roll back its side effects. An empty rule list is intentionally treated as permitted: applications that require mandatory checks must supply them.
+
+For practical scenarios and comparison with alternatives, see [Practical value and scope](docs/practical-value.md).
